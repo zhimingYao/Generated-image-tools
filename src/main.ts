@@ -1,11 +1,10 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+// import "./assets/main.css";
+/* 自动导入插件生效 */
+// import ElementPlus from "element-plus";
+// import "element-plus/dist/index.css";
+// import svgIcon from "@/components/svgIcon/index.vue";
+import "virtual:svg-icons-register";
 
-import './assets/main.css'
-
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-
-createApp(App)
-.use(ElementPlus)
-.mount('#app')
+createApp(App).mount("#app");

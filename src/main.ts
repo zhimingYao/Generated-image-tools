@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import { createPinia } from 'pinia'
 // import "./assets/main.css";
 /* 自动导入插件生效 */
 // import ElementPlus from "element-plus";
@@ -7,4 +8,8 @@ import App from "./App.vue";
 // import svgIcon from "@/components/svgIcon/index.vue";
 import "virtual:svg-icons-register";
 
-createApp(App).mount("#app");
+
+const pinia = createPinia()
+
+
+createApp(App).use(pinia).mount("#app");

@@ -1,35 +1,33 @@
 // 路由
 
-interface Router {
-  path:string,
-  name?:string,
-  redirect?:string | {
-    name:string
-  },
-  component?:object,
-  children?:Router [],
-  meta?:{
-    role:number,
-    requiresAuth: boolean
-  }
+interface RouteConfig {
+  path: string;
+  redirect?: string;
+  children?: RouteConfig[];
+  name?: string;
+  meta?: {
+    role: number;
+    requiresAuth: boolean;
+  };
+  component?: () => any;
 }
 
-const routes = <Router []> [
+const routes = <RouteConfig[]>[
   {
-    path:"/",
-    redirect:"/home",
-    children:[
+    path: '/',
+    redirect: '/home',
+    children: [
       {
-        path:"home",
-        name:"首页",
-        component:()=>import("@/view/home.vue"),
-        meta:{
-          role:0,
-          requiresAuth:false,
-        }
-      }
-    ]
-  }
-]
+        path: '/home',
+        name: '首页',
+        meta: {
+          role: 0,
+          requiresAuth: false,
+        },
+        component: () => import('../view/home/index.vue'),
+      },
+    ],
+  },
+];
 
-export default routes
+export default routes;
